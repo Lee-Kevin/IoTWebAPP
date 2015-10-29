@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Pion One IoT Demo</title>
+    <link rel="stylesheet" href="/stylesheets/jquery.fullPage.css">
+	<script src="javascripts/chart.js"></script>
+<!--
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<script src="js/chart.js"></script> -->
+<style>
+* { margin: 0; padding: 0;}
+body { font: 14px/1.6 "Microsoft Yahei";}
+.inner { position: relative; width: 1100px; margin: 0 auto;}
+.dowebok-hd { position: fixed; z-index: 1000; width: 100%; height: 64px; background: url(images/hd_bg.jpg) 0 0 repeat-x;}
+.dowebok-hd h1 { float: left; width: 135px; height: 26px; margin-top: 20px;}
+.dowebok-hd h1 a { display: block; width: 135px; height: 26px; text-indent: -9999px; background-image: url(images/logo.png);}
+.dowebok-hd .nav { float: right; list-style-type: none;}
+.dowebok-hd .nav li { float: left; margin-left: 5px;}
+.dowebok-hd .nav a { float: left; padding: 0 10px; line-height: 64px; color: #fff; text-decoration: none;}
+.dowebok-hd .nav a:hover { height: 62px; border-bottom: 2px solid #4cb803;}
+
+#dowebok { margin-top: 64px;}
+#dowebok .section { background: url(images/section_bg.jpg) 0 0 repeat-x;}
+#dowebok .inner { width: 960px; height: 100%;}
+#dowebok .section1 { background-color: #212121; background: url(images/section_bg.jpg);}
+#dowebok .section1 .fp-tableCell { vertical-align: top;}
+#dowebok .section1 .gojd { display: block; height: 100%; text-indent: -9999px; overflow: hidden; background: url(images/slider2.jpg) 50% 0 no-repeat;}
+#dowebok .section1 .PionOne { display: block; height: 100%; text-indent: -9999px; overflow: hidden; background: url(images/slider21.jpg) 50% 0 no-repeat;}
+
+#dowebok .section1 .fp-controlArrow { width: 100px; height: 100px; margin-top: -50px; border: 0 none;}
+#dowebok .section1 .fp-prev { left: 150px; background: url(images/left_control.png) 50% no-repeat;}
+#dowebok .section1 .fp-next { right: 150px; background: url(images/right_control.png) 50% no-repeat;}
+
+#dowebok .section2 .img1 { position: absolute; left: 240px; top: 8%;}
+#dowebok .section2 .img2 { position: absolute; left: -7px; bottom: 64px;}
+
+<!-- #dowebok .section3 h2 { width: 577px; height: 90px; margin: 0 auto; text-indent: -9999px; background-image: url(i-->mages/slider3_title.png);} -->
+<!-- #dowebok .section3 img { display: block; margin: 2% auto;} --> 
+
+#dowebok .section3 h2 { width: 500px; height: 70px; margin:auto; text-indent: 50px;} -->
+#dowebok .section3 img { display: block; margin: 0% auto;} --> 
+#dowebok .section3 .txt { line-height: 30px; text-align: center;}
+#dowebok .section3 .fp-controlArrow { width: 100px; height: 100px; margin-top: -50px; border: 0 none;}
+#dowebok .section3 .fp-prev { left: 150px; background: url(images/left_control.png) 50% no-repeat;}
+#dowebok .section3 .fp-next { right: 150px; background: url(images/right_control.png) 50% no-repeat;}
+
+#dowebok .section4 .img1 { position: absolute; left: -160px; top: 5%;}
+#dowebok .section4 .txt { position: absolute; right: 0; top: 12%; width: 650px;}
+#dowebok .section4 h2 { height: 90px; margin-bottom: 10px; background: url(images/slider4_title.png) 0 0 no-repeat;}
+#dowebok .section4 p { padding: 20px 0; line-height: 30px; font-size: 16px;}
+#dowebok .section4 .icon { height: 111px; background: url(images/slider4_icon.png) 0 0 no-repeat;}
+
+#dowebok .section5 .img1 { position: absolute; right: -460px; top: 180px;}
+#dowebok .section5 .txt { position: absolute; left: 0; top: 8%; width: 680px;}
+#dowebok .section5 h2 { height: 90px; margin-bottom: 10px; background: url(images/slider5_title.png) 0 0 no-repeat;}
+#dowebok .section5 p { width: 550px; padding: 20px 0; line-height: 30px; font-size: 16px;}
+#dowebok .section5 .icon { margin-right: 15px;}
+
+#dowebok .ft { position: absolute; left: 0; bottom: 64px; width: 960px; background-color: rgba(255, 255, 255, 0.7);}
+#dowebok .ft-link { padding: 10px 0; overflow: hidden; zoom: 1;}
+#dowebok .more-links { float: left; padding: 0 60px; border-right: 1px solid #e7e8e8;}
+#dowebok .ft-link .first { padding-left: 100px;}
+#dowebok .more-links h3 { font-size: 14px; color: #7d7d7d;}
+#dowebok .more-links ul { list-style-type: none;}
+#dowebok .more-links a { color: #676767; text-decoration: none;}
+#dowebok .service { float: right; padding-right: 100px; background: url(images/phone.png) 10px 10px no-repeat;}
+#dowebok .service ul { padding: 0 15px 0 56px; background-color: rgba(255, 255, 255, 0.5); list-style-type: none;}
+#dowebok .service .phone { padding: 7px 0 0 10px; border-left: 1px solid #fff; font-size: 22px;}
+#dowebok .service .time { border-left: 1px solid #fff; font-size: 16px; color: #adb0b4;}
+#dowebok .copy { height: 50px;}
+#dowebok .copy p { width: 100%; padding: 0; line-height: 18px; font-size: 12px; text-align: center; color: #a1a1a1;}
+
+#fp-nav span, .fp-slidesNav span { border: 1px solid #999;}
+#fp-nav li .active span, .fp-slidesNav.active span { background-color: #4ec200;}
+</style>
+</head>
+
+<body>
+<div class="dowebok-hd">
+	<div class="inner">
+		<h1><a href="http://www.seeedstudio.com/depot/">Pion One IoT Demo</a></h1>
+		
+	</div>
+</div>
+<div id="dowebok">
+
+	<div class="section section1">
+	<!-- <a class="gojd" href="http://www.seeedstudio.com/depot/">PionOne！</a>  -->
+		<div class="slide">
+			<a class="gojd" href="http://www.seeedstudio.com/depot/">PionOne！</a>
+		</div>
+		<div class="slide">
+			<a class="PionOne" href="http://www.seeedstudio.com/depot/">PionOne！</a>
+		</div>
+	
+	</div>
+	
+	<!--<div class="section section2">
+		<div class="inner">
+			<img class="img1" src="images/slider2_title.png" alt="">
+		<!-- 	<div id="myChart" align="center" style="position: absolute; center: 480px; top: 30%;width:1000px;height:300px;"></div>
+			 <div id="myChart1" style="position: absolute; bottom: 480px; top: 30%;width:680px;height:300px;"></div> 
+		</div>
+	</div> -->
+	<div class="section section3">
+		<div class="slide">
+			<h2> Grove Temperature & Humidity Sensor </h2>
+			
+            <div  align="center", style="width:60%; margin:auto">
+				<canvas id="canvas" height=80% width=height*4/5></canvas> 
+	    	</div>
+         
+			<p class="txt">
+			     <a href="http://www.seeedstudio.com/wiki/Grove-_Temperature_and_Humidity_Sensor">Grove Temperature & Humidity Sensor</a> provides reliable readings.<br/>
+				 It has excellent reliability and long term stability.<br/>
+				 You can easily use PionOne and Grove Sensors to build IoT devices that belongs to you.<br/>
+				 There are more than 150+ Grove modules, more details about Grove System, please visit <a href = "http://www.seeedstudio.com/wiki/index.php?title=Main_Page#Grove">Grove Wiki</a>.<br/>
+			</p>
+			
+		</div>
+		<div class="slide">
+			<h2 style="text-indent:100px"> Grove Digital Light Sensor </h2>
+            
+            <div  align="center", style="width:60%; margin:auto">
+				<canvas id="LightChart" height=80% width=height*4/5></canvas> 
+	    	</div>
+            
+			<!-- <img src="images/slider_item1.png" alt=""> -->
+			<!-- <div id="myChart" align="center" style="center: 480px; top: 0%;width:1000px;height:300px;margin:auto"></div> -->
+
+			<p class="txt">
+			     <a href="http://www.seeedstudio.com/depot/Grove-Digital-Light-Sensor-p-1281.html">Grove Digital Sensor</a> features a selectable light spectrum range due to its dual light sensitive diodes.<br/>
+				 This sensor will give you readings just close to your eye feelings.<br/>
+				 You can easily use PionOne and Grove Sensors to build IoT devices that belongs to you.<br/>
+				 There are more than 150+ Grove modules, more details about Grove System, please visit <a href = "http://www.seeedstudio.com/wiki/index.php?title=Main_Page#Grove">Grove Wiki</a>.<br/>
+			</p>
+		</div>
+		<div class="slide">
+			<h2 style="text-indent:100px"> Grove - Moisture Sensor </h2>
+            <div  align="center", style="width:60%; margin:auto">
+				<canvas id="MoistureChart" height=80% width=height*4/5></canvas> 
+	    	</div>	
+			
+			<p class="txt">
+			     <a href="http://www.seeedstudio.com/depot/Grove-Moisture-Sensor-p-955.html">Grove Moisture Sensor</a> can be used to detect the moisture of soil or judge if there is water around the sensor.<br/>
+				 Let the plants in your garden reach out for human help.<br/>
+				 You can easily use PionOne and Grove Sensors to build IoT devices that belongs to you.<br/>
+				 There are more than 150+ Grove modules, more details about Grove System, please visit <a href = "http://www.seeedstudio.com/wiki/index.php?title=Main_Page#Grove">Grove Wiki</a>.<br/>
+			</p>
+		</div>
+		<div class="slide">
+			<h2 style="text-indent:100px"> Grove - Air Quality Sensor </h2>
+			<div  align="center", style="width:60%; margin:auto">
+				<canvas id="AirChart" height=80% width=height*4/5></canvas> 
+	    	</div>	
+			<p class="txt">
+                 <a href="http://www.seeedstudio.com/depot/Grove-Air-quality-sensor-v13-p-2439.html">Grove Air quality Sensor</a> is designed for comprehensive monitor over indoor air condition.<br/>
+				 It's responsive to a wide scope of harmful gases, as carbon monixide, alcohol, acetone, thinner, formaldehyde and so on.<br/>
+				 You can easily use PionOne and Grove Sensors to build IoT devices that belongs to you.<br/>
+				 There are more than 150+ Grove modules, more details about Grove System, please visit <a href = "http://www.seeedstudio.com/wiki/index.php?title=Main_Page#Grove">Grove Wiki</a>.<br/>
+			</p>
+		</div>
+	</div>
+	</div>
+</div>
+
+<script src="javascripts/jquery-1.8.3.min.js"></script>
+<script src="javascripts/jquery.easing.min.js"></script>
+<script src="javascripts/jquery.fullPage.min.js"></script>
+<script src='javascripts/jquery.flot.min.js'></script>
+
+<script src="javascripts/socket.io-1.3.7.js"></script>
+<script src="javascripts/adjust_chart.js"></script>
+
+<script>
+$(function(){
+	$('#dowebok').fullpage({
+		navigation: true
+	});
+});
+</script>
+
+</body>
+</html>
