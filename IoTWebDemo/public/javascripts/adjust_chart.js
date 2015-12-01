@@ -94,6 +94,10 @@
                     AirChartData.labels[i] = i.toString();
                     AirChartData.datasets[0].data[i]=0;
 				}
+                window.onload();
+                window.onload2();
+                window.onload3();
+                window.onload4();
 		}
         /* Onload for Grove Temp & Humi */
 		window.onload = function(){

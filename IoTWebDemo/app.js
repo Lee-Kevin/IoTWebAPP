@@ -17,7 +17,7 @@ var temperature_url = "https://120.25.216.117/v1/node/GroveTempHum/temperature?a
 
 var light_url = "https://120.25.216.117/v1/node/GroveDigitalLight/lux?access_token=6b53bce4b8c63c886f4449efa782e232";
 
-var moisture_url = "https://120.25.216.117/v1/node/GroveMoisture/moisture?access_token=5bb1818d2be56b25fa9b856de74297b1";
+var moisture_url = "https://cn.iot.seeed.cc/v1/node/GroveMoisture/moisture?access_token=bf162002b220b9d45028bb0053b4a17f";
 
 var quality_url = "https://120.25.216.117/v1/node/GroveAirquality/quality?access_token=6b53bce4b8c63c886f4449efa782e232";
 
@@ -118,7 +118,12 @@ app.io.on('connection', function(socket){
         update_moisture_data();
         update_quality_data();
 	}
-	setInterval(update_date,1000);
+	setInterval(update_date,2000);
+    // setInterval(update_humidity_data,1000);
+    // setInterval(update_temperature_data,1500);
+    // setInterval(update_moisture_data,1000);
+    // setInterval(update_light_data,2000);
+    // setInterval(update_quality_data,2500);
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
   }); 
